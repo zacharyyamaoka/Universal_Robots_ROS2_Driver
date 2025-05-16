@@ -122,6 +122,9 @@ def generate_launch_description():
     moveit_config = (
         MoveItConfigsBuilder(robot_name="ur", package_name="ur_moveit_config")
         .robot_description_semantic(Path("srdf") / "ur.srdf.xacro", {"name": ur_type})
+        .planning_pipelines(
+            pipelines=["ompl", "pilz_industrial_motion_planner"],
+            default_planning_pipeline="pilz_industrial_motion_planner")        
         .to_moveit_configs()
     )
 
