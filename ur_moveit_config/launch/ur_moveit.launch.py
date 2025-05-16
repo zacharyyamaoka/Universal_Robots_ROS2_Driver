@@ -49,6 +49,11 @@ from moveit_configs_utils import MoveItConfigsBuilder
 
 from ament_index_python.packages import get_package_share_directory
 
+#region - BAM 
+from launch_ros.actions import PushROSNamespace, SetRemap
+from launch.actions import GroupAction
+from launch.substitutions import EnvironmentVariable
+#endregion - BAM 
 
 def load_yaml(package_name, file_path):
     package_path = get_package_share_directory(package_name)
@@ -101,6 +106,7 @@ def declare_arguments():
                 default_value="true",
                 description="MoveGroup publishes robot description semantic",
             ),
+            DeclareLaunchArgument('ns', default_value=["/bam_",EnvironmentVariable('ROBOT_ID')])
         ]
     )
 
@@ -130,6 +136,7 @@ def generate_launch_description():
     wait_robot_description = Node(
         package="ur_robot_driver",
         executable="wait_for_robot_description",
+        namespace=LaunchConfiguration("ns"),
         output="screen",
     )
     ld.add_action(wait_robot_description)
@@ -184,11 +191,22 @@ def generate_launch_description():
         ],
     )
 
+    group = GroupAction(
+        actions=[
+            PushROSNamespace(LaunchConfiguration("ns")),
+            SetRemap(src='/tf',dst='tf'),
+            SetRemap(src='/tf_static',dst='tf_static'),
+            move_group_node,
+            rviz_node,
+            servo_node
+        ]
+        )
+    
     ld.add_action(
         RegisterEventHandler(
             OnProcessExit(
                 target_action=wait_robot_description,
-                on_exit=[move_group_node, rviz_node, servo_node],
+                on_exit=group,
             )
         ),
     )
