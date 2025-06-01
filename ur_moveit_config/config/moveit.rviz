@@ -5,7 +5,6 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /MotionPlanning1
         - /MotionPlanning1/Planned Path1
       Splitter Ratio: 0.4957627058029175
     Tree Height: 168
@@ -87,17 +86,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          eef_link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          eef_link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          fixed_tcp_frame:
+          ee_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -114,11 +103,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ground_plane:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           shoulder_link:
             Alpha: 1
             Show Axes: false
@@ -211,17 +195,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          eef_link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          eef_link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          fixed_tcp_frame:
+          ee_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -238,11 +212,6 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ground_plane:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           shoulder_link:
             Alpha: 1
             Show Axes: false
@@ -327,25 +296,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.2081971168518066
+      Distance: 2.284992218017578
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.08275318890810013
-        Y: -0.1793154925107956
-        Z: 0.5940303802490234
+        X: -0.054733339697122574
+        Y: 0.11161356419324875
+        Z: 0.1614324301481247
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3403984010219574
+      Pitch: 0.2953982353210449
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.6003987789154053
+      Yaw: 0.2954018712043762
     Saved: ~
 Window Geometry:
   Displays:
@@ -365,5 +334,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1440
-  X: 1951
-  Y: 197
+  X: 2302
+  Y: 117
