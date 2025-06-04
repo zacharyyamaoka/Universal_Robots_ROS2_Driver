@@ -3,10 +3,11 @@
 
   <!-- robot name parameter -->
   <xacro:arg name="name" default="ur"/>
+  <xacro:arg name="gripper" default="none"/>
 
-  <!-- <xacro:include filename="$(find ur_moveit_config)/srdf/ur_bam_macro.srdf.xacro"/> -->
-  <xacro:include filename="$(find ur_moveit_config)/srdf/ur_macro.srdf.xacro"/>
+  <xacro:include filename="$(find ur_moveit_config)/srdf/ur_bam_macro.srdf.xacro"/>
+  <!-- <xacro:include filename="$(find ur_moveit_config)/srdf/ur_macro.srdf.xacro"/> -->
 
-  <xacro:ur_srdf/>
+  <xacro:ur_srdf gripper="$(arg gripper)"/>
 
 </robot>
