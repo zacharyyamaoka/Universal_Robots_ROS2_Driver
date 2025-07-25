@@ -201,7 +201,7 @@ def generate_launch_description():
             SetRemap(src='/tf_static',dst='tf_static'),
             move_group_node,
             rviz_node,
-            servo_node
+            # servo_node # not needed right now, just an additional depency
         ]
         )
     
